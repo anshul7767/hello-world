@@ -1,0 +1,62 @@
+#include<iostream>
+using namespace std;
+
+class bank_anshul{
+ private:
+  int ano,ba;
+  char ah[15],at[7];
+
+ public:
+  void initial_values()
+{
+cout<<"enter account holder's name"<<endl<<"enter account no."<<endl<<"enter type of account i.e savings or current"<<endl<<"enter balance amount"<<endl;
+cin>>ah>>ano>>at>>ba;
+
+}
+  void deposit_amount()
+  {
+      int dep;
+      cin>>dep;
+      ba=dep+ba;
+
+    }
+  void withdraw_amount()
+  {
+       int withdraw;
+       cin>>withdraw;
+       if(withdraw<ba)
+       ba=ba-withdraw;
+       else
+       cout<<"insufficient balance"<<endl;
+
+  }
+
+  void display()
+  {
+  cout<<"Account holder's name ="<<ah<<"\n"<<endl<<"Account number="<<
+  ano<<"\n"<<endl<<"your account type="<<at<<"\n"<<endl<<"your balance="<<ba;
+  }
+  };
+
+  int main(void)
+  {
+  int ch;
+  bank_anshul a;
+  a.initial_values();
+  cout<<"enter 1 to deposit and 2 for withdraw"<<endl;
+  cin>>ch;
+   switch(ch)
+{
+case 1:a.deposit_amount();
+      a.display();
+       break;
+
+case 2:a.withdraw_amount();
+       a.display();
+       break;
+default:cout<<"enter a valid choice";
+
+ }
+return 0;
+ }
+
